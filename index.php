@@ -1,10 +1,18 @@
 <?php
 
+    session_start();
+
     include_once __DIR__ . '/functions.php';
 
-    $charLength = isset($_GET["charachterNumber"]) ? intval($_GET["charachterNumber"], 10) : '';
+    // $charLength = isset($_GET["charachterNumber"]) ? intval($_GET["charachterNumber"], 10) : '';
 
-    $newPassword = generatePassword($charLength);
+    // $newPassword = generatePassword($charLength);
+
+    if (isset($_GET["charachterNumber"])) {
+        $charLength = intval($_GET["charachterNumber"]);
+        $newPassword = generatePassword($charLength);
+        $_SESSION['newPassword'] = $newPassword;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +32,7 @@
         </section>
         <section class="row">
             <div class="col-10 mx-auto ">
-                <form action="index.php" method="get">
+                <form action="result.php" method="get">
                     <div class="row mb-3">
                         <label for="charachterNumber" class="col-sm-2 col-form-label">Lunghezza password</label>
                         <div class="col-sm-4">
@@ -72,9 +80,6 @@
                     <button type="submit" class="btn btn-primary">Invia</button>
                     <button type="submit" class="btn btn-secondary">Annulla</button>
                 </form>
-                <div>
-                    <?php echo $newPassword ?>
-                </div>
             </div>
         </section>
     </main>

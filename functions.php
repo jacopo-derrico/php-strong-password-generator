@@ -17,6 +17,7 @@
             $newPassword .= $allCharachters[$randChar];
         };
 
-       return $newPassword;
+        return $newPassword;
+
     };
 ?>
