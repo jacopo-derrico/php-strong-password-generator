@@ -1,3 +1,28 @@
+<?php
+    $charLength = isset($_GET["charachterNumber"]) ? intval($_GET["charachterNumber"], 10) : '';
+    function generatePassword($charLength) {
+        $lowercase = "abcdefgijklmnopqrstuvwxyz";
+        $uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $numbers = "0123456789";
+        $symbols = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+        $allCharachters = $lowercase . $uppercase . $numbers . $symbols;
+
+        $sumCharacters = strlen($allCharachters);
+
+        $newPassword = "";
+
+        for ($i=0; $i < $charLength; $i++) { 
+            $randChar = rand(0, $sumCharacters - 1);
+
+            $newPassword .= $allCharachters[$randChar];
+        };
+
+       return $newPassword;
+    };
+    $newPassword = generatePassword($charLength);
+?>
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
@@ -17,9 +42,9 @@
             <div class="col-10 mx-auto ">
                 <form action="index.php" method="get">
                     <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Lunghezza password</label>
+                        <label for="charachterNumber" class="col-sm-2 col-form-label">Lunghezza password</label>
                         <div class="col-sm-4">
-                        <input type="email" class="form-control" id="inputEmail3">
+                        <input type="number" class="form-control" id="charachterNumber" name="charachterNumber">
                         </div>
                     </div>
                     <fieldset class="row mb-3">
@@ -63,6 +88,9 @@
                     <button type="submit" class="btn btn-primary">Invia</button>
                     <button type="submit" class="btn btn-secondary">Annulla</button>
                 </form>
+                <div>
+                    <?php echo $newPassword ?>
+                </div>
             </div>
         </section>
     </main>
