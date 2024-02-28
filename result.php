@@ -1,5 +1,6 @@
 <?php
     session_start();   
+    include __DIR__ . '/functions.php';
     
     if (isset($_SESSION['newPassword'])) {
         $password = $_SESSION['newPassword'];
@@ -19,12 +20,12 @@
 <body>
     <main class="container-fluid">
         <section class="row">
-            <h1 class="text-center">Strong Password Generator</h1>
+            <h3 class="text-center my-4 ">Your New Strong Password Generator</h3>
         </section>
         <section class="row">
             <div class="col-10 mx-auto ">
-                <div>
-                    <?php echo $newPassword ?>
+                <div class="text-center">
+                    <?php echo $_SESSION['newPassword'] ?>
                 </div>
             </div>
         </section>
