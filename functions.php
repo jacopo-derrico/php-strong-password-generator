@@ -1,9 +1,7 @@
 <?php
-    function generatePassword($charLength) {
-        $lowercase = "abcdefgijklmnopqrstuvwxyz";
-        $uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $numbers = "0123456789";
-        $symbols = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+    include __DIR__ . '/variables.php';
+
+    function generatePassword($charLength, $letDuplicateChar, $lowercase, $uppercase, $numbers, $symbols) {
 
         $allCharachters = $lowercase . $uppercase . $numbers . $symbols;
 
@@ -14,7 +12,10 @@
         for ($i=0; $i < $charLength; $i++) { 
             $randChar = rand(0, $sumCharacters - 1);
 
-            $newPassword .= $allCharachters[$randChar];
+            if ($letDuplicateChar == true || !str_contains($newPassword, $allCharachters[$randChar])) {
+                $newPassword .= $allCharachters[$randChar];
+            }
+
         };
 
         return $newPassword;

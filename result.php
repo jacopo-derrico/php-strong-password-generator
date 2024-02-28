@@ -1,6 +1,7 @@
 <?php
     session_start();   
     include __DIR__ . '/functions.php';
+    include __DIR__ . '/variables.php';
     
     if (isset($_SESSION['newPassword'])) {
         $password = $_SESSION['newPassword'];
