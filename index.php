@@ -58,18 +58,18 @@
                     <div class="row mb-3">
                         <div class="col-sm-10 offset-sm-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="letters">
+                                <input class="form-check-input" type="checkbox" id="letters" name="letters" value="1" checked>
                                 <label class="form-check-label" for="letters">
                                 Lettere
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="numbers">
+                                <input class="form-check-input" type="checkbox" id="numbers" name="numbers" value="1" checked>
                                 <label class="form-check-label" for="numbers">
                                 Numeri
                                 </label>
                             </div><div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="symbols">
+                                <input class="form-check-input" type="checkbox" id="symbols" name="symbols" value="1" checked>
                                 <label class="form-check-label" for="symbols">
                                 Simboli
                                 </label>

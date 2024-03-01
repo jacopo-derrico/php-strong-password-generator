@@ -3,7 +3,19 @@
 
     function generatePassword($charLength, $letDuplicateChar, $lowercase, $uppercase, $numbers, $symbols) {
 
-        $allCharachters = $lowercase . $uppercase . $numbers . $symbols;
+        $allCharachters;
+
+        if (isset($_GET['letters']) && $_GET['letters'] == '1') {
+            $allCharachters .= $lowercase . $uppercase;
+        };
+
+        if (isset($_GET['numbers']) && $_GET['numbers'] == '1') {
+            $allCharachters .= $numbers;
+        };
+
+        if (isset($_GET['symbols']) && $_GET['symbols'] == '1') {
+            $allCharachters .= $symbols;
+        };
 
         $sumCharacters = strlen($allCharachters);
 
